@@ -4,9 +4,9 @@ import * as PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect, Provider } from 'react-redux';
 
-import { appStore } from './car-store';
+import { appStore } from './store';
 import { CarTool } from './components/car-tool-redux';
-import { insert, refresh, update, deleteCar } from './car-actions';
+import { insert, refresh, update, deleteCar } from './actions';
 
 
 const CarToolContainer = connect(

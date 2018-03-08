@@ -5,14 +5,6 @@ import { VoterList } from './voter-list';
 import { VoterRegForm } from './voter-reg-form';
 
 export class Voter extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    
-    showVoters = () => {
-        return <h4>Fix Me!</h4>;
-    }
-
     render() {
         return (
             <div>

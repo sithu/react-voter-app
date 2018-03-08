@@ -22,7 +22,7 @@ export class VoterList extends React.Component {
                     <h2 ref={subtitle => this.subtitle = subtitle}>Voter List</h2>
                     <button onClick={() => this.setState({modalIsOpen: false})}>Close</button>
                     <ul>
-                    {this.props.voters.map( voter => <li key={voter.id}>{voter.name}</li>)}
+                    {this.props.voters.map( voter => <li key={voter.id}>{voter.first_name}</li>)}
                     </ul>
                 </Modal>
             </div>

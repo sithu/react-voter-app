@@ -2,11 +2,19 @@
   "voters": [
     {
       "id": 1,
-      "name": "John Smith"
+      "first_name": "John",
+      "last_name": "Smith",
+      "address": "123 Ocean St",
+      "city": "San Francisco",
+      "birthdate": "01/01/1995"
     },
     {
       "id": 2,
-      "name": "Julie Chen"
+      "first_name": "Julie",
+      "last_name": "Chen",
+      "address": "456 Market St",
+      "city": "San Jose",
+      "birthdate": "02/02/2000"
     }
   ],
   "elections": [

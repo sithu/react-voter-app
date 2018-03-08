@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 import * as PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect, Provider } from 'react-redux';
+import './index.css'
 
 import { appStore } from './store';
 /**
@@ -14,12 +15,12 @@ import { VoterMain } from './components/voter-main';
  * Custom Actions imports
  */
 import { refreshVoter, insertVoter, updateVoter, deleteVoter } from './actions/voter-reg-actions';
-import { insertElection } from './actions/election-actions';
+import { insertElection, refreshElection } from './actions/election-actions';
 
 
 const MainContainer = connect(
     ({ voters, elections }) => ({ voters, elections }),
-    dispatch => bindActionCreators({ refreshVoter, insertVoter, updateVoter, deleteVoter }, dispatch)
+    dispatch => bindActionCreators({ refreshVoter, insertVoter, updateVoter, deleteVoter, insertElection, refreshElection }, dispatch)
 )(VoterMain);
 
 ReactDOM.render(<Provider store={appStore}>
@@ -29,6 +30,7 @@ ReactDOM.render(<Provider store={appStore}>
 const refresh = () => {
     return dispatch => {
         refreshVoter()(dispatch);
+        refreshElection()(dispatch);
         // add your refresh method here!
     };
 }

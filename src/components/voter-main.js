@@ -21,7 +21,7 @@ export class VoterMain extends React.Component {
                 <Header headerText="Voter Menu" />
                 <Voter voters={this.props.voters} onSave={this.props.insertVoter} />
                 <h3>Placeholder for Select Election and Voting Components</h3>
-                <ElectionForm />
+                <ElectionForm election={this.props.election} onSubmitQuestion={this.props.addQuestion} />
                 <h3>Placeholder for Election Result Component</h3>
             </div>
         );

@@ -6,8 +6,12 @@ export class ElectionForm extends React.Component {
 
     static propTypes = {
         onChange: PropTypes.func,
-        questions: PropTypes.array,
+        election: PropTypes.array,
         addQuestion: PropTypes.func,
+    }
+
+    static defaultProps = {
+        election: [],
     }
 
     constructor(props) {
@@ -15,20 +19,12 @@ export class ElectionForm extends React.Component {
 
         this.state = { 
             question: '',
+            election: props.election.concat(),
             modalIsOpen: false 
         };
 
         this.onChange = this.onChange.bind(this);
     }
-
-    // addQuestion  = question => {
-    //     const newQuestion = {
-    //         question: this.state.question,
-    //     };
-    //     this.props.onSubmitQuestion(newQuestion);
-    //     this.setState(this.initQuestion());
-    
-    // }
 
     openModal = () => {
         this.setState({
@@ -43,12 +39,21 @@ export class ElectionForm extends React.Component {
     }
 
     submitQuestion = () => {
-        this.props.onSubmitQuestion(this.state.question);
-
         this.setState({
-            question: '',
+            election: this.state.election.concat(this.state.question),
         });
+        console.log(this.state.question);
+  
     }
+
+    submitElection = () => {
+        const election = {
+            question: this.question.value,
+        }
+        this.props.onSubmitElection(election);
+        this.closeModal();
+    }
+
 
     onChange = (e) => {
         this.setState({
@@ -57,26 +62,28 @@ export class ElectionForm extends React.Component {
     }
 
     render() {
+        console.log("render");
         return (
             <div>
                 <button onClick = {this.openModal}> Create New Election </button>
                 <Modal 
                 isOpen={this.state.modalIsOpen}
                 onRequestClose={this.closeModal}
-                contentLabel="Create New Election"
-                >
+                contentLabel="Create New Election">
+                <h4>Your current ballot looks like: </h4>
+                <ul> {this.state.election.map(question => <li key={question}>{question}</li>)} </ul>
                 <form> 
                     <h3> Add questions </h3>
-                    <h4> <i>yes or no questions only </i> </h4>
+                    <p><i>yes or no questions only </i></p> 
                     <div> 
                         <label htmlFor = "question-input "> question: </label>
                         <input id = "question-input" type = "text" name = "question"
-                        value = {this.state.question} onChange = {this.onChange} />
+                        value={this.state.question} onChange={this.onChange} />
                     </div>
-                    <button type = "button"> Add Question </button>
+                    <button type = "button" onClick={this.submitQuestion}> Add Question </button>
                 </form>
                 <button type = "button"> Submit Election </button>
-                <p><button onClick = {this.closeModal}> Close New Election </button></p>
+                <p><button onClick={this.closeModal}> Close New Election </button></p>
                 </Modal>
             </div>
         );

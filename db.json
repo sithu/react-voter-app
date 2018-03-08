@@ -19,39 +19,22 @@
       "birthdate": "02/02/2000"
     }    
   ],
+  "ballots": [
+    {
+      "id": 1,
+      "election_id": 1,
+      "voter_id": 1,
+      "result": [ true, false ]
+    }
+  ],
   "elections": [
     {
       "id": 1,
       "name": "San Jose Mayor",
-      "voter_ids": [],
-      "yes": [],
-      "no": []
+      "questions": [
+        "question 1",
+        "question 2"
+      ]
     }
-  ],
-  "cars": [
-    {
-      "id": 1,
-      "make": "Hondaaa",
-      "model": "CRV",
-      "year": 2015,
-      "color": "blue",
-      "price": 27000
-    },
-    {
-      "id": 2,
-      "make": "Tesla",
-      "model": "Model 3",
-      "year": 2018,
-      "color": "red",
-      "price": 59000
-    },
-    {
-      "id": 3,
-      "make": "X",
-      "model": "XY",
-      "year": 2018,
-      "color": "",
-      "price": 4000
-    }
-  ]
+  ]  
 }

@@ -11,9 +11,9 @@ export class SelectElection extends React.Component {
             selectedElection: 'E1',
             toVoterSignIn: false,
             registeredVoters: [
-                {firstName: 'Sithu', lastName: 'Aung'},
-                {firstName: 'Julie', lastName: 'Chen'},
-                {firstName: 'Madi', lastName: 'Pignetti'},
+                {firstName: 'Sithu', lastName: 'Aung', ssn: "1",},
+                {firstName: 'Julie', lastName: 'Chen', ssn: "2",},
+                {firstName: 'Madi', lastName: 'Pignetti', ssn: "3"},
             ],
         };
     };

@@ -17,32 +17,20 @@ export class VoterSignIn extends React.Component {
         const voter = {
             firstName: this.firstName.value,
             lastName: this.lastName.value,
+            ssn: this.ssn.value,
         };
 
-        // if (!this.voterInList(voter)) {
-        //     //console.log("name entered:", voter.firstName, voter.lastName);
-        //     this.setState({
-        //         isValidVoter: false,
-        //     });
-        // };
+        if (!this.props.registeredVoters.find((v) => { return v.ssn === voter.ssn})) {
+            this.setState({
+                isValidVoter: false,
+            })
+        }
 
         this.setState({
             voterProcessed: true,
         });
 
     };
-
-    // voterInList = voter => {
-    //     const isInList = false;
-    //     this.props.registeredVoters.map(v => {
-    //         var vProps = Object.getOwnPropertyNames(v);
-            
-    //         for (let i = 0; i < vProps.length; i++) {
-    //             let propName = vProps[i];
-    //             if (v[propName] !== voter[propName])
-    //         }
-    //     });
-    // }
 
     displayError = () => {
         return <div>User not registered, cannot vote.</div>;
@@ -69,6 +57,9 @@ export class VoterSignIn extends React.Component {
             <div>Last Name:
                 <input type="text" defaultValue="" 
                     ref={i => this.lastName = i}/></div>
+            <div>SSN:
+                <input type="number" defaultValue="" 
+                    ref={i => this.ssn = i}/></div>
             <button type="button" onClick={this.verifyVoterValid}>Sign In</button>
             {this.chooseAccess()}
         </div>;

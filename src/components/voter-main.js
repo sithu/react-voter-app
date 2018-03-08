@@ -3,6 +3,8 @@ import * as PropTypes from 'prop-types';
 
 import { Header } from './header';
 import { SelectElection } from './select-election';
+import { Voter } from './voter';
+import { ElectionForm } from './election-form';
 
 export class VoterMain extends React.Component {
     static defaultProps = {
@@ -22,9 +24,10 @@ export class VoterMain extends React.Component {
         return (
             <div>
                 <Header headerText="Voter Menu" />
-                <h3>Placeholder for voter registration Component</h3>
+                <Voter voters={this.props.voters} onSave={this.props.insertVoter} />
                 <h3>Placeholder for Select Election and Voting Components</h3>
                 <SelectElection elections={this.state.elections}/>
+                <ElectionForm election={this.props.election} onSubmitQuestion={this.props.addQuestion} />
                 <h3>Placeholder for Election Result Component</h3>
             </div>
         );

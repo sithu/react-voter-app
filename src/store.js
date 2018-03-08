@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
-const reducer = (state = { cars: [] }, action) => {
+const reducer = (state = { voters: [], elections: [] }, action) => {
     switch(action.type) {
-        case 'REFRESH_DONE': return { ...state, cars: action.cars };
+        case 'VOTER_REFRESH_DONE': return { ...state, voters: action.voters };
         default: return state;
     }
 };

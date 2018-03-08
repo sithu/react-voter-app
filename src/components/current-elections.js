@@ -21,8 +21,8 @@ export class CurrentElections extends React.Component {
                     </thead>
                     <tbody>
                         {this.props.elections.map( election => {
-                        return <tr> <td> Election {election.id} </td> 
-                        <td> <button type ="button"> View Results </button> </td></tr>;})}
+                        return <tr><td> Election {election.id} </td> 
+                        <td><button type ="button"> View Results </button></td></tr>;})}
                     </tbody>
                 </table>
             </div>

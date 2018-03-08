@@ -4,6 +4,7 @@
       "id": 1,
       "first_name": "John",
       "last_name": "Smith",
+      "ssn": "111223333",
       "address": "123 Ocean St",
       "city": "San Francisco",
       "birthdate": "01/01/1995"
@@ -12,18 +13,11 @@
       "id": 2,
       "first_name": "Julie",
       "last_name": "Chen",
+      "ssn": "111224444",
       "address": "456 Market St",
       "city": "San Jose",
       "birthdate": "02/02/2000"
-    },
-    {
-      "first_name": "Foo",
-      "last_name": "Bar",
-      "address": "123 Main St",
-      "city": "Santa Clara",
-      "birthdate": "03/03/2003",
-      "id": 3
-    }
+    }    
   ],
   "elections": [
     {

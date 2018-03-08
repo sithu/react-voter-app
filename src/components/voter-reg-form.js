@@ -33,6 +33,7 @@ export class VoterRegForm extends React.Component {
         const voter = {
             first_name: this.fname.value,
             last_name: this.lname.value,
+            ssn: this.ssn.value,
             address: this.address.value,
             city: this.city.value,
             birthdate: this.birthdate.value
@@ -61,6 +62,10 @@ export class VoterRegForm extends React.Component {
                     <div>
                         <label htmlFor="lname-input">Last Name:</label>
                         <input id="lname-input" type="text" name="lname" ref={n => this.lname = n} />
+                    </div>
+                    <div>
+                        <label htmlFor="ssn-input">Social Security Num:</label>
+                        <input id="ssn-input" type="text" name="ssn" ref={n => this.ssn = n} />
                     </div>
                     <div>
                         <label htmlFor="address-input">Address:</label>

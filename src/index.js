@@ -14,6 +14,7 @@ import { VoterMain } from './components/voter-main';
  * Custom Actions imports
  */
 import { refreshVoter, insertVoter, updateVoter, deleteVoter } from './actions/voter-reg-actions';
+import { insertElection } from './actions/election-actions';
 
 
 const MainContainer = connect(

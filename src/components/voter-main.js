@@ -5,6 +5,7 @@ import { Header } from './header';
 import { SelectElection } from './select-election';
 import { Voter } from './voter';
 import { ElectionForm } from './election-form';
+import { CurrentElections } from './current-elections';
 
 export class VoterMain extends React.Component {
     static defaultProps = {
@@ -16,7 +17,7 @@ export class VoterMain extends React.Component {
         super(props);
 
         this.state = {
-            elections: ['E1', 'E2', 'E3'],
+            elections: [],
         }
     }
 
@@ -25,9 +26,9 @@ export class VoterMain extends React.Component {
             <div>
                 <Header headerText="Voter Menu" />
                 <Voter voters={this.props.voters} onSave={this.props.insertVoter} />
-                <h3>Placeholder for Select Election and Voting Components</h3>
+                <CurrentElections elections={this.props.elections}/>
                 <SelectElection elections={this.state.elections}/>
-                <ElectionForm election={this.props.election} onSubmitQuestion={this.props.addQuestion} />
+                <ElectionForm election={this.props.election} onSubmitQuestion={this.props.addQuestion} onSubmitElection={this.props.insertElection}/>
                 <h3>Placeholder for Election Result Component</h3>
             </div>
         );

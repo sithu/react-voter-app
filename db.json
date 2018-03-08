@@ -1,4 +1,23 @@
 {
+  "voters": [
+    {
+      "id": 1,
+      "name": "John Smith"
+    },
+    {
+      "id": 2,
+      "name": "Julie Chen"
+    }
+  ],
+  "elections": [
+    {
+      "id": 1,
+      "name": "San Jose Mayor",
+      "voter_ids": [],
+      "yes": [],
+      "no": []
+    }
+  ],
   "cars": [
     {
       "id": 1,

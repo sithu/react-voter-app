@@ -5,14 +5,31 @@ import { bindActionCreators } from 'redux';
 import { connect, Provider } from 'react-redux';
 
 import { appStore } from './store';
-import { CarTool } from './components/car-tool-redux';
-import { insert, refresh, update, deleteCar } from './actions';
-
+/**
+ * Custom Components imports
+ */
 import { VoterMain } from './components/voter-main';
 
-const CarToolContainer = connect(
-    ({ cars }) => ({ cars }),
-    dispatch => bindActionCreators({ refresh, insert, update, deleteCar }, dispatch)
-)(CarTool);
+/**
+ * Custom Actions imports
+ */
+import { refreshVoter, insertVoter, updateVoter, deleteVoter } from './actions/voter-reg-actions';
 
-ReactDOM.render(<VoterMain />, document.querySelector('main'))
+
+const MainContainer = connect(
+    ({ voters, elections }) => ({ voters, elections }),
+    dispatch => bindActionCreators({ refreshVoter, insertVoter, updateVoter, deleteVoter }, dispatch)
+)(VoterMain);
+
+ReactDOM.render(<Provider store={appStore}>
+    <MainContainer />
+</Provider>, document.querySelector('main'))
+
+const refresh = () => {
+    return dispatch => {
+        refreshVoter()(dispatch);
+        // add your refresh method here!
+    };
+}
+
+refresh()(appStore.dispatch);

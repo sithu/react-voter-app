@@ -11,6 +11,7 @@ export class VoterMain extends React.Component {
 
     constructor(props) {
         super(props);
+        console.log('--- constructor ---');
     }
 
     render() {

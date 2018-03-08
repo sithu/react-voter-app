@@ -18,7 +18,6 @@ export class Voter extends React.Component {
             <div>
                 <h3>Voters</h3>
                 <VoterRegForm onSave={this.props.onSave} />
-                <button type="button" onClick={this.showVoters} >Show Voters</button>
                 <VoterList voters={this.props.voters}/>
                 <hr />
             </div>

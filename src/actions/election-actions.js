@@ -42,7 +42,7 @@ export const updateElection =  election => {
     return dispatch => {
         dispatch(createInsertRequestAction(election))
 
-        return fetch('http://localhost:4000/ elections/' + encodeURIComponent( election.id), {
+        return fetch('http://localhost:4000/ elections/' + encodeURIComponent(election.id), {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(election)
@@ -51,10 +51,10 @@ export const updateElection =  election => {
     };
 }
 
-export const deleteElection = ( election) => {
+export const deleteElection = (election) => {
     return dispatch => {
         dispatch(createDeleteRequestAction());
-        return fetch('http://localhost:4000/elections/' + encodeURIComponent( election.id), {
+        return fetch('http://localhost:4000/elections/' + encodeURIComponent(election.id), {
             method: 'DELETE' })
             .then(() => refreshElection()(dispatch));
     }

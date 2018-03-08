@@ -30,7 +30,6 @@ export class VoterRegForm extends React.Component {
     }
 
     save = () => {
-        console.log('saving' + this.name.value);
         const voter = {
             first_name: this.fname.value,
             last_name: this.lname.value,

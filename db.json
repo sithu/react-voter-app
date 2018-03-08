@@ -15,6 +15,14 @@
       "address": "456 Market St",
       "city": "San Jose",
       "birthdate": "02/02/2000"
+    },
+    {
+      "first_name": "Foo",
+      "last_name": "Bar",
+      "address": "123 Main St",
+      "city": "Santa Clara",
+      "birthdate": "03/03/2003",
+      "id": 3
     }
   ],
   "elections": [

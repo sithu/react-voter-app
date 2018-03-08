@@ -38,8 +38,7 @@ export class VoterRegForm extends React.Component {
             city: this.city.value,
             birthdate: this.birthdate.value
         };
-        this.props.onSave(voter);
-        this.closeModal();
+        this.props.onSave(voter).then(this.closeModal());
     }
 
     render() {

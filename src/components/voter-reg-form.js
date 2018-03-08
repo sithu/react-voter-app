@@ -53,7 +53,6 @@ export class VoterRegForm extends React.Component {
                     contentLabel="Voter Registration Form"
                     >
                 <h2 ref={subtitle => this.subtitle = subtitle}>Voter Registration Form</h2>
-                <button onClick={this.closeModal}>Close</button>
                 <form>
                     <div>
                         <label htmlFor="fname-input">First Name:</label>
@@ -80,6 +79,7 @@ export class VoterRegForm extends React.Component {
                         <input id="db-input" type="text" name="birthdate" ref={n => this.birthdate = n} />
                     </div>
                     <button type="button" onClick={this.save}>Save</button>
+                    <button onClick={this.closeModal}>Close</button>
                 </form>
                 </Modal>
             </div>

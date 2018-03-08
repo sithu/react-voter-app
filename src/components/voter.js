@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 import { VoterList } from './voter-list';
+import { VoterRegForm } from './voter-reg-form';
 
 export class Voter extends React.Component {
     constructor(props) {
@@ -16,7 +17,7 @@ export class Voter extends React.Component {
         return (
             <div>
                 <h3>Voters</h3>
-                <button type="button">Register</button>
+                <VoterRegForm onSave={this.props.onSave} />
                 <button type="button" onClick={this.showVoters} >Show Voters</button>
                 <VoterList voters={this.props.voters}/>
                 <hr />

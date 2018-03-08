@@ -8,14 +8,11 @@ import { appStore } from './store';
 import { CarTool } from './components/car-tool-redux';
 import { insert, refresh, update, deleteCar } from './actions';
 
+import { Main } from './components/main-menu';
 
 const CarToolContainer = connect(
     ({ cars }) => ({ cars }),
     dispatch => bindActionCreators({ refresh, insert, update, deleteCar }, dispatch)
 )(CarTool);
 
-ReactDOM.render(<Provider store={appStore}>
-    <CarToolContainer />
-</Provider>, document.querySelector('main'))
-
-refresh()(appStore.dispatch);
+ReactDOM.render(<Main />, document.querySelector('main'))

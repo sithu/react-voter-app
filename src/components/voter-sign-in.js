@@ -24,8 +24,7 @@ export class VoterSignIn extends React.Component {
             birthdate: this.birthdate.value,
         };
 
-        let foundVoter = this.props.registeredVoters.find((v) => { return v.ssn === voter.ssn});
-
+        let foundVoter = this.props.registeredVoters.find((v) => { return v.ssn === voter.ssn });
         this.setState({
             voter: foundVoter,
         })
@@ -86,3 +85,4 @@ export class VoterSignIn extends React.Component {
     };
 
 };
+

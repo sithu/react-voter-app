@@ -54,7 +54,7 @@ export class VoterMain extends React.Component {
                 <Header headerText=" happy campers " />
                 <Voter voters={this.props.voters} onSave={this.props.insertVoter} />
                 <SelectElection elections={this.state.electionList} 
-                    registeredVoters={this.state.registeredVoters}
+                    registeredVoters={this.props.voters}
                     onSubmitBallot={this.props.insertBallot}/>               
                 <ElectionForm election={this.props.election} onSubmitQuestion={this.props.addQuestion} onSubmitElection={this.props.insertElection}/>
                 <h3>Placeholder for Election Result Component</h3>

@@ -16,6 +16,7 @@ export class Ballot extends React.Component {
 
         this.state = {
             answers: l,
+            submitted: false,
         };
     };
 
@@ -37,6 +38,10 @@ export class Ballot extends React.Component {
     };
 
     submitBallot = () => {
+        this.setState({
+            submitted: true,
+        })
+
         this.props.onSubmitBallot({
             electionId: this.props.election.id, 
             voterId: this.props.voterId, 
@@ -44,11 +49,18 @@ export class Ballot extends React.Component {
         });
     }
 
+    showSubmitMessage() {
+        if (this.state.submitted) {
+            return <div>Thank you for submitting your ballot! Please close this window.</div>
+        }
+    };
+
     render() {
         return <div>
             <h3>{this.props.election.name}</h3>
             {this.props.election.questions.map(question => this.questionRow(question))}
             <button type="button" onClick={this.submitBallot}>Submit Ballot</button>
+            {this.showSubmitMessage()}
         </div>;
     };
 

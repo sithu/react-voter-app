@@ -5,6 +5,7 @@ import { Header } from './header';
 import { SelectElection } from './select-election';
 import { Voter } from './voter';
 import { ElectionForm } from './election-form';
+import { CurrentElections } from './current-elections';
 
 export class VoterMain extends React.Component {
     static defaultProps = {
@@ -38,6 +39,7 @@ export class VoterMain extends React.Component {
                 {firstName: 'Julie', lastName: 'Chen', ssn: "2",},
                 {firstName: 'Madi', lastName: 'Pignetti', ssn: "3"},
             ],
+            elections: [],
         }
     }
 
@@ -49,13 +51,14 @@ export class VoterMain extends React.Component {
     render() {
         return (
             <div>
-                <Header headerText="Voter Menu" />
+                <Header headerText=" happy campers " />
                 <Voter voters={this.props.voters} onSave={this.props.insertVoter} />
                 <SelectElection elections={this.state.electionList} 
                     registeredVoters={this.state.registeredVoters}
-                    onSubmitBallot={this.submitBallot}/>
-                <ElectionForm election={this.props.election} onSubmitQuestion={this.props.addQuestion} />
+                    onSubmitBallot={this.submitBallot}/>               
+                <ElectionForm election={this.props.election} onSubmitQuestion={this.props.addQuestion} onSubmitElection={this.props.insertElection}/>
                 <h3>Placeholder for Election Result Component</h3>
+                <CurrentElections elections={this.props.elections}/>
             </div>
         );
     }

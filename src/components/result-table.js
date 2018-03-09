@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 
 export const VoterListTable = props => {
-    const rows = props.voters.map( result => {
+    const rows = props.results.map( result => {
         return <tr id={result.id}>
             <td>{result.question}</td>
             <td>{result.num_yes}</td>

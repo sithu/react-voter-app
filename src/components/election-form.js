@@ -47,11 +47,11 @@ export class ElectionForm extends React.Component {
     submitElection = () => {
         const election = {
             question: this.question.value,
+            name: this.name.value,
         }
         this.props.onSubmitElection(election);
         this.closeModal();
     }
-
 
     onChange = (e) => {
         this.setState({
@@ -76,6 +76,12 @@ export class ElectionForm extends React.Component {
                         <input id="question-input" type="text" name="question" ref={q => this.question = q}
                         onChange={this.onChange} />
                     </div>
+                    <div> 
+                        <label htmlFor = "name-input "> election name: </label>
+                        <input id="name-input" type="text" name="name" ref={n => this.name = n}
+                        onChange={this.onChange} />
+                    </div>
+
                     <button type="button" onClick={this.submitQuestion}> Add Question </button>
                 </form>
                 <h4>Your current ballot looks like: </h4>

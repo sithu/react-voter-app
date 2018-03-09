@@ -10,7 +10,8 @@ import { CurrentElections } from './current-elections';
 export class VoterMain extends React.Component {
     static defaultProps = {
         voters: [],
-        elections: [],    
+        elections: [],
+        ballots: [],  
     }
 
     constructor(props) {
@@ -34,7 +35,7 @@ export class VoterMain extends React.Component {
                     ballots={this.props.ballots}
                     onSubmitBallot={this.props.insertBallot}/>               
                 <ElectionForm election={this.props.elections} questions={this.props.elections.questions} onSubmitQuestion={this.props.addQuestion} onSubmitElection={this.props.insertElection}/>
-                <CurrentElections elections={this.props.elections}/>
+                <CurrentElections elections={this.props.elections} ballots={this.props.ballots} />
             </div>
         );
     }

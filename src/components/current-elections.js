@@ -1,9 +1,12 @@
 import * as React from 'react';
 
+import { ElectionResult } from './election-result'; 
+
 export class CurrentElections extends React.Component {
 
     static defaultProps = {
         elections: [],
+        ballots: [],
     }
 
     constructor(props) {
@@ -22,7 +25,7 @@ export class CurrentElections extends React.Component {
                     <tbody>
                         {this.props.elections.map( election => {
                         return <tr><td> Election {election.id} </td> 
-                        <td><button type ="button"> View Results </button></td></tr>;})}
+                        <td><ElectionResult election={election} ballots={this.props.ballots}/></td></tr>;})}
                     </tbody>
                 </table>
             </div>

@@ -2,16 +2,23 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import Modal from 'react-modal';
 
+//const questions= this.props.election.questions
+
 export class ElectionForm extends React.Component {
 
     static propTypes = {
         onChange: PropTypes.func,
         election: PropTypes.array,
         addQuestion: PropTypes.func,
+        questions: PropTypes.array,
     }
 
     static defaultProps = {
-        election: [],
+        election: {
+           name: '',
+           questions: [],
+        },
+
     }
 
     constructor(props) {
@@ -19,7 +26,8 @@ export class ElectionForm extends React.Component {
 
         this.state = { 
             question: '',
-            election: props.election.concat(),
+            questions: props.election.questions ? props.election.questions.concat() : [],
+            election: props.election,
             modalIsOpen: false 
         };
 
@@ -40,13 +48,15 @@ export class ElectionForm extends React.Component {
 
     submitQuestion = () => {
         this.setState({
-            election: this.state.election.concat(this.state.question),
+       //     election: this.state.election.concat(this.state.question),
+            questions: this.state.questions.concat(this.state.question),
         });
     }
 
     submitElection = () => {
         const election = {
-            question: this.question.value,
+            //question: this.question.value,
+            questions: this.state.questions.concat(),
             name: this.name.value,
         }
         this.props.onSubmitElection(election);
@@ -72,12 +82,12 @@ export class ElectionForm extends React.Component {
                     <h3> Add questions </h3>
                     <p><i>yes or no questions only </i></p> 
                     <div> 
-                        <label htmlFor = "question-input "> question: </label>
+                        <label htmlFor="question-input"> question: </label>
                         <input id="question-input" type="text" name="question" ref={q => this.question = q}
                         onChange={this.onChange} />
                     </div>
                     <div> 
-                        <label htmlFor = "name-input "> election name: </label>
+                        <label htmlFor="name-input "> election name: </label>
                         <input id="name-input" type="text" name="name" ref={n => this.name = n}
                         onChange={this.onChange} />
                     </div>
@@ -85,7 +95,7 @@ export class ElectionForm extends React.Component {
                     <button type="button" onClick={this.submitQuestion}> Add Question </button>
                 </form>
                 <h4>Your current ballot looks like: </h4>
-                <ul> {this.state.election.map(question => <li key={question}>{question}</li>)} </ul>
+                <ul> {this.state.questions.map(question => <li key={question}>{question}</li>)} </ul>
                 <button type="button" onClick={this.submitElection}> Submit Election for Voting </button>
                 <p><button onClick={this.closeModal}> Close New Election </button></p>
                 </Modal>

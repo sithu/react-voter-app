@@ -24,7 +24,7 @@ export class VoterMain extends React.Component {
     render() {
         return (
             <div>
-                <Header headerText="Happy Campers" />
+                <Header headerText=" happy campers " />
                 <Voter voters={this.props.voters} onSave={this.props.insertVoter} />
                 <CurrentElections elections={this.props.elections}/>
                 <SelectElection elections={this.state.elections}/>

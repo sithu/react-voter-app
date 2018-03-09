@@ -49,15 +49,16 @@ export class VoterMain extends React.Component {
     };
 
     render() {
+        console.log('---render voter-main ---');
+        console.log(this.props);
         return (
             <div>
                 <Header headerText=" happy campers " />
                 <Voter voters={this.props.voters} onSave={this.props.insertVoter} />
-                <SelectElection elections={this.state.electionList} 
+                <SelectElection elections={this.props.elections} 
                     registeredVoters={this.props.voters}
                     onSubmitBallot={this.props.insertBallot}/>               
-                <ElectionForm election={this.props.election} onSubmitQuestion={this.props.addQuestion} onSubmitElection={this.props.insertElection}/>
-                <h3>Placeholder for Election Result Component</h3>
+                <ElectionForm election={this.props.elections} onSubmitQuestion={this.props.addQuestion} onSubmitElection={this.props.insertElection}/>
                 <CurrentElections elections={this.props.elections}/>
             </div>
         );

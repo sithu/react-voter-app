@@ -18,11 +18,6 @@ const createInsertRequestAction = () => ({
     type: 'ELECTION_INSERT_REQUEST',
 });
 
-const createInsertDoneAction = election => ({
-    type: 'ELECTION_INSERT_DONE',
-    election,
-});
-
 export const insertElection =  election => {
 
     return dispatch => {

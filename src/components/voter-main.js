@@ -33,7 +33,7 @@ export class VoterMain extends React.Component {
                     registeredVoters={this.props.voters}
                     ballots={this.props.ballots}
                     onSubmitBallot={this.props.insertBallot}/>               
-                <ElectionForm election={this.props.elections} onSubmitQuestion={this.props.addQuestion} onSubmitElection={this.props.insertElection}/>
+                <ElectionForm election={this.props.elections} questions={this.props.elections.questions} onSubmitQuestion={this.props.addQuestion} onSubmitElection={this.props.insertElection}/>
                 <CurrentElections elections={this.props.elections}/>
             </div>
         );

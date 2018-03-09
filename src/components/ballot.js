@@ -21,7 +21,7 @@ export class Ballot extends React.Component {
     };
 
     questionRow = (question) => {
-        return <Checkbox question={question} onCheckboxChange={this.checkboxChange}/>;
+        return <Checkbox key={question.id} question={question} onCheckboxChange={this.checkboxChange}/>;
     };
 
     checkboxChange = (isChecked, id) => {

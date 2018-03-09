@@ -21,11 +21,13 @@ export class SelectElection extends React.Component {
     };
 
     createRadioButton = (election) => {
-        return <div className="radio">
+        return <div key={election.id} className="radio">
             <label>
-                <input type="radio" id={election.id} value={election.name} 
-                checked={this.state.selectedElection === election.id}
-                onChange={this.toggleRadioButton} />
+                <input type="radio" 
+                    id={election.id} 
+                    value={election.name} 
+                    checked={this.state.selectedElection === election.id}
+                    onChange={this.toggleRadioButton} />
                 {election.name}
             </label>
         </div>;

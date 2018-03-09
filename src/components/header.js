@@ -7,9 +7,9 @@ import moose from '../images/moose.png';
  * @param {*} props 
  */
 export const Header = props => <header>
-        <center><h2>{props.headerText}</h2>
+        <center><h2>♥{props.headerText}♥</h2>
         <img className="moose" src={moose} width="100px"/>
-        <p><i> code or die </i></p>
+        <p id="slogan"> code or die </p>
         </center>
     </header>;
 

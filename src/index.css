@@ -10,14 +10,35 @@ td {
   border: 1px solid darkgray;
 }
 
+#slogan { 
+  color: #aed6f1;
+  font-style: italic; 
+}
+
+h2 {
+  color: #C04B7F;
+}
+
+h3 {
+  font-style: italic;
+}
 table {
-  border: 1px solid black;
+  border: 1px solid pink;
   border-collapse: collapse;
 }
 
+tbody { 
+  color: pink;
+}
+
+button { 
+  background-color:#C04B7F;
+  border: 1px solid lightpink;
+  color: white;
+}
 thead {
   color: white;
-  background: gray;
+  background: #aed6f1;
 }
 
 label {

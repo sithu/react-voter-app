@@ -16,11 +16,18 @@ import { VoterMain } from './components/voter-main';
  */
 import { refreshVoter, insertVoter, updateVoter, deleteVoter } from './actions/voter-reg-actions';
 import { insertElection, refreshElection } from './actions/election-actions';
+import { refreshBallot, insertBallot } from './actions/ballot-actions';
 
 
 const MainContainer = connect(
-    ({ voters, elections }) => ({ voters, elections }),
-    dispatch => bindActionCreators({ refreshVoter, insertVoter, updateVoter, deleteVoter, insertElection, refreshElection }, dispatch)
+    ({ voters, elections, ballots }) => ({ voters, elections, ballots }),
+    dispatch => bindActionCreators(
+        { 
+            refreshVoter, insertVoter, updateVoter, deleteVoter, 
+            insertElection, refreshElection,
+            refreshBallot, insertBallot, 
+        }
+        , dispatch)
 )(VoterMain);
 
 ReactDOM.render(<Provider store={appStore}>
@@ -31,6 +38,7 @@ const refresh = () => {
     return dispatch => {
         refreshVoter()(dispatch);
         refreshElection()(dispatch);
+        refreshBallot()(dispatch);
         // add your refresh method here!
     };
 }

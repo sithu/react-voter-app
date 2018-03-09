@@ -35,17 +35,17 @@ export class VoterMain extends React.Component {
                 ]
             }],
             registeredVoters: [
-                {firstName: 'Sithu', lastName: 'Aung', ssn: "1",},
-                {firstName: 'Julie', lastName: 'Chen', ssn: "2",},
-                {firstName: 'Madi', lastName: 'Pignetti', ssn: "3"},
+                {firstName: 'Sithu', lastName: 'Aung', ssn: "1", id: 1},
+                {firstName: 'Julie', lastName: 'Chen', ssn: "2", id: 2},
+                {firstName: 'Madi', lastName: 'Pignetti', ssn: "3", id: 3},
             ],
             elections: [],
         }
     }
 
-    submitBallot = (answers) => {
+    submitBallot = (electionId, voterId, answers) => {
         console.log("ballot submitted");
-        console.log("ballot results:", answers);
+        console.log("ballot results:", electionId, voterId, answers);
     };
 
     render() {
@@ -55,7 +55,7 @@ export class VoterMain extends React.Component {
                 <Voter voters={this.props.voters} onSave={this.props.insertVoter} />
                 <SelectElection elections={this.state.electionList} 
                     registeredVoters={this.state.registeredVoters}
-                    onSubmitBallot={this.submitBallot}/>               
+                    onSubmitBallot={this.props.insertBallot}/>               
                 <ElectionForm election={this.props.election} onSubmitQuestion={this.props.addQuestion} onSubmitElection={this.props.insertElection}/>
                 <h3>Placeholder for Election Result Component</h3>
                 <CurrentElections elections={this.props.elections}/>

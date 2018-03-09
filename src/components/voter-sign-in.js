@@ -19,9 +19,13 @@ export class VoterSignIn extends React.Component {
             firstName: this.firstName.value,
             lastName: this.lastName.value,
             ssn: this.ssn.value,
+            address: this.address.value,
+            city: this.city.value,
+            birthdate: this.birthdate.value,
         };
 
         let foundVoter = this.props.registeredVoters.find((v) => { return v.ssn === voter.ssn});
+
         this.setState({
             voter: foundVoter,
         })
@@ -48,7 +52,7 @@ export class VoterSignIn extends React.Component {
             return null;
         } else if (this.state.isValidVoter) {
             return <Ballot election={this.props.election}
-                voter={this.state.voter}
+                voterId={this.state.voter.id}
                 onSubmitBallot={this.props.onSubmitBallot}/>;
         } else {
             return <div>User not registered, cannot vote.</div>;
@@ -64,9 +68,18 @@ export class VoterSignIn extends React.Component {
             <div>Last Name:
                 <input type="text" defaultValue="" 
                     ref={i => this.lastName = i}/></div>
-            <div>SSN:
+            <div>Social Security Number:
                 <input type="number" defaultValue="" 
                     ref={i => this.ssn = i}/></div>
+            <div>Address:
+                <input type="text" defaultValue="" 
+                    ref={i => this.address = i}/></div>
+            <div>City:
+                <input type="text" defaultValue="" 
+                    ref={i => this.city = i}/></div>
+            <div>Birth date:
+                <input type="text" defaultValue="" 
+                    ref={i => this.birthdate = i}/></div>
             <button type="button" onClick={this.verifyVoterValid}>Sign In</button>
             {this.chooseAccess()}
         </div>;

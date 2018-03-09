@@ -37,7 +37,11 @@ export class Ballot extends React.Component {
     };
 
     submitBallot = () => {
-        this.props.onSubmitBallot(this.state.answers);
+        this.props.onSubmitBallot({
+            electionId: this.props.election.id, 
+            voterId: this.props.voterId, 
+            results: this.state.answers,
+        });
     }
 
     render() {

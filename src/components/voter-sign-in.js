@@ -10,6 +10,7 @@ export class VoterSignIn extends React.Component {
         this.state = {
             voterProcessed: false,
             isValidVoter: true,
+            voter: '',
         };
     };
 
@@ -20,7 +21,11 @@ export class VoterSignIn extends React.Component {
             ssn: this.ssn.value,
         };
 
-        if (!this.props.registeredVoters.find((v) => { return v.ssn === voter.ssn})) {
+        let foundVoter = this.props.registeredVoters.find((v) => { return v.ssn === voter.ssn});
+        this.setState({
+            voter: foundVoter,
+        })
+        if (!foundVoter) {
             this.setState({
                 isValidVoter: false,
             })
@@ -42,7 +47,9 @@ export class VoterSignIn extends React.Component {
         if (!this.state.voterProcessed) {
             return null;
         } else if (this.state.isValidVoter) {
-            return <Ballot />;
+            return <Ballot election={this.props.election}
+                voter={this.state.voter}
+                onSubmitBallot={this.props.onSubmitBallot}/>;
         } else {
             return <div>User not registered, cannot vote.</div>;
         }

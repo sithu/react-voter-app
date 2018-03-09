@@ -38,11 +38,14 @@ export class VoterSignIn extends React.Component {
 
         if (foundVoter) {
             let foundBallot = this.props.electionBallots.find(ballot => ballot.voterId === foundVoter.id);
-            console.log("this user already has a ballot:", foundBallot);
+                      
+            if (foundBallot) {
+                console.log("this user already has a ballot:", foundBallot);
+                this.setState({
+                    hasNotVoted: false,
+                });
+            };
             
-            this.setState({
-                hasNotVoted: false,
-            });
         };
 
         this.setState({

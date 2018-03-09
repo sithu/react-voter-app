@@ -2,6 +2,8 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import Modal from 'react-modal';
 
+import { VoterResultTable } from './result-table';
+
 export class ElectionResult extends React.Component {
 
     constructor(props) {
@@ -63,7 +65,7 @@ export class ElectionResult extends React.Component {
                     onRequestClose={this.closeModal}
                     contentLabel="Election Results">
                     <h4>Results</h4>
-                    
+                        <VoterResultTable />
                         <p><button onClick={this.closeModal}> Close </button></p>
                 </Modal>
             </div>

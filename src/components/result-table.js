@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 
-export const VoterListTable = props => {
+export const VoterResultTable = props => {
     const rows = props.results.map( result => {
         return <tr id={result.id}>
             <td>{result.question}</td>
@@ -24,10 +24,10 @@ export const VoterListTable = props => {
     );
 }
 
-VoterListTable.propTypes = {
+VoterResultTable.propTypes = {
     results: PropTypes.array.isRequired,
 }
 
-VoterListTable.defaultProps = {
+VoterResultTable.defaultProps = {
     results: [{ id: 1, question: "Question 1?", num_yes: 100, num_no: 99}],
 }

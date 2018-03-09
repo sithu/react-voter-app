@@ -17,33 +17,155 @@
       "address": "456 Market St",
       "city": "San Jose",
       "birthdate": "02/02/2000"
-    }    
+    },
+    {
+      "first_name": "Mei",
+      "last_name": "Cheang",
+      "ssn": "123",
+      "address": "1310 Florin Road, Apt 32",
+      "city": "Sacramento",
+      "birthdate": "03/03/1987",
+      "id": 3
+    }
   ],
   "ballots": [
     {
       "id": 1,
-      "election_id": 1,
-      "voter_id": 1,
-      "result": [ true, false ]
+      "electionId": 1,
+      "voterId": 1,
+      "results": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "electionId": 1,
+      "voterId": 1,
+      "results": [
+        false,
+        true,
+        false
+      ],
+      "id": 2
+    },
+    {
+      "electionId": 1,
+      "voterId": 1,
+      "results": [
+        false,
+        true,
+        false
+      ],
+      "id": 3
+    },
+    {
+      "electionId": 1,
+      "voterId": 1,
+      "results": [
+        true,
+        false,
+        false
+      ],
+      "id": 4
+    },
+    {
+      "electionId": 1,
+      "voterId": 1,
+      "results": [
+        false,
+        true,
+        false
+      ],
+      "id": 5
+    },
+    {
+      "electionId": 1,
+      "voterId": 1,
+      "results": [
+        true,
+        false,
+        false
+      ],
+      "id": 6
+    },
+    {
+      "electionId": 1,
+      "voterId": 1,
+      "results": [
+        false,
+        true,
+        false
+      ],
+      "id": 7
+    },
+    {
+      "electionId": 1,
+      "voterId": 1,
+      "results": [
+        false,
+        true,
+        false
+      ],
+      "id": 8
+    },
+    {
+      "electionId": 2,
+      "voterId": 1,
+      "results": [
+        true,
+        false,
+        true
+      ],
+      "id": 9
+    },
+    {
+      "electionId": 1,
+      "voterId": 3,
+      "results": [
+        true,
+        false,
+        false
+      ],
+      "id": 10
     }
   ],
   "elections": [
     {
-    "id": 1,
-    "name": "Which donuts you like huh???",
-    "questions": [
-        {"label": "Krispy Kreme glazed", "id": 1},
-        {"label": "Blueberry cake", "id": 2},
-        {"label": "Donut holes", "id": 3}
-    ]
-    }, {
-        "id": 2,
-        "name": "Large structures you are okay with building in our city",
-        "questions": [
-            {"label": "Apple spaceship", "id": 1},
-            {"label": "Giant android shaped building", "id": 2},
-            {"label": "A 3 story family home", "id": 3}
-        ]
+      "id": 1,
+      "name": "Which donuts you like huh???",
+      "questions": [
+        {
+          "label": "Krispy Kreme glazed",
+          "id": 1
+        },
+        {
+          "label": "Blueberry cake",
+          "id": 2
+        },
+        {
+          "label": "Donut holes",
+          "id": 3
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Large structures you are okay with building in our city",
+      "questions": [
+        {
+          "label": "Apple spaceship",
+          "id": 1
+        },
+        {
+          "label": "Giant android shaped building",
+          "id": 2
+        },
+        {
+          "label": "A 3 story family home",
+          "id": 3
+        }
+      ]
     }
-  ]  
+  ]
 }

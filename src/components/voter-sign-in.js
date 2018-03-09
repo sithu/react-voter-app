@@ -9,12 +9,13 @@ export class VoterSignIn extends React.Component {
 
         this.state = {
             voterProcessed: false,
-            isValidVoter: true,
+            isRegisteredVoter: true,
+            hasNotVoted: true,
             voter: '',
         };
     };
 
-    verifyVoterValid = (event) => {
+    verifyVoterValid = () => {
         const voter = {
             firstName: this.firstName.value,
             lastName: this.lastName.value,
@@ -31,13 +32,18 @@ export class VoterSignIn extends React.Component {
 
         if (!foundVoter) {
             this.setState({
-                isValidVoter: false,
+                isRegisteredVoter: false,
             });
         };
 
-        // if (foundVoter) {
-        //     let foundBallot = 
-        // }
+        if (foundVoter) {
+            let foundBallot = this.props.electionBallots.find(ballot => ballot.voterId === foundVoter.id);
+            console.log("this user already has a ballot:", foundBallot);
+            
+            this.setState({
+                hasNotVoted: false,
+            });
+        };
 
         this.setState({
             voterProcessed: true,
@@ -51,15 +57,18 @@ export class VoterSignIn extends React.Component {
 
     chooseAccess = () => {
         console.log("voterProcessed:", this.state.voterProcessed);
-        console.log("isValidVoter:", this.state.isValidVoter);
+        console.log("isRegisteredVoter:", this.state.isRegisteredVoter);
+        console.log("hasNotVoted:", this.state.hasNotVoted);
         if (!this.state.voterProcessed) {
             return null;
-        } else if (this.state.isValidVoter) {
+        } else if (this.state.isRegisteredVoter && this.state.hasNotVoted) {
             return <Ballot election={this.props.election}
                 voterId={this.state.voter.id}
                 onSubmitBallot={this.props.onSubmitBallot}/>;
-        } else {
+        } else if (!this.state.isRegisteredVoter){
             return <div>User not registered, cannot vote.</div>;
+        } else {
+            return <div>User already has submitted a ballot in this election, cannot vote again.</div>;
         }
     }
 

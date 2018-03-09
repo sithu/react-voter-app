@@ -47,6 +47,8 @@ export class SelectElection extends React.Component {
                 <VoterSignIn registeredVoters={this.props.registeredVoters}
                     election={this.props.elections.find(election => 
                         {return election.id === this.state.selectedElection})} 
+                    electionBallots={this.props.ballots.filter(ballot => 
+                        ballot.electionId === this.state.selectedElection)}
                     onSubmitBallot={this.props.onSubmitBallot}
                     onCloseModal={() => this.setState({modalIsOpen: false})}/>
                 <button onClick={() => this.setState({modalIsOpen: false})}>Close</button>

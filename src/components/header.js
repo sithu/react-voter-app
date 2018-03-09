@@ -8,7 +8,7 @@ import moose from '../images/moose.png';
  */
 export const Header = props => <header>
         <center><h2>♥{props.headerText}♥</h2>
-        <img className="moose" src={moose} width="100px"/>
+        <img className="moose" src={moose} width="100px" alt="moose"/>
         <p id="slogan"> code or die </p>
         </center>
     </header>;

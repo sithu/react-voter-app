@@ -27,12 +27,17 @@ export class VoterSignIn extends React.Component {
         let foundVoter = this.props.registeredVoters.find((v) => { return v.ssn === voter.ssn });
         this.setState({
             voter: foundVoter,
-        })
+        });
+
         if (!foundVoter) {
             this.setState({
                 isValidVoter: false,
-            })
-        }
+            });
+        };
+
+        // if (foundVoter) {
+        //     let foundBallot = 
+        // }
 
         this.setState({
             voterProcessed: true,

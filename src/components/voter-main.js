@@ -15,32 +15,6 @@ export class VoterMain extends React.Component {
 
     constructor(props) {
         super(props);
-
-        this.state = {
-            electionList: [{
-                "id": 1,
-                "name": "Which donuts you like huh???",
-                "questions": [
-                    {label: "Krispy Kreme glazed", id: 1},
-                    {label: "Blueberry cake", id: 2},
-                    {label: "Donut holes", id: 3},
-                ]
-            }, {
-                "id": 2,
-                "name": "Large structures you are okay with building in our city",
-                "questions": [
-                    {label: "Apple spaceship", id: 1},
-                    {label: "Giant android shaped building", id: 2},
-                    {label: "A 3 story family home", id: 3},
-                ]
-            }],
-            registeredVoters: [
-                {firstName: 'Sithu', lastName: 'Aung', ssn: "1", id: 1},
-                {firstName: 'Julie', lastName: 'Chen', ssn: "2", id: 2},
-                {firstName: 'Madi', lastName: 'Pignetti', ssn: "3", id: 3},
-            ],
-            elections: [],
-        }
     }
 
     submitBallot = (electionId, voterId, answers) => {

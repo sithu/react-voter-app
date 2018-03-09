@@ -8,29 +8,25 @@ export class SelectElection extends React.Component {
         super(props);
 
         this.state = {
-            selectedElection: 'E1',
+            selectedElection: 1,
             toVoterSignIn: false,
-            registeredVoters: [
-                {firstName: 'Sithu', lastName: 'Aung'},
-                {firstName: 'Julie', lastName: 'Chen'},
-                {firstName: 'Madi', lastName: 'Pignetti'},
-            ],
+            
         };
     };
 
     toggleRadioButton = (event) => {
         this.setState({
-            selectedElection: event.target.value,
+            selectedElection: parseInt(event.target.id),
         });
     };
 
     createRadioButton = (election) => {
         return <div className="radio">
             <label>
-                <input type="radio" value={election} 
-                checked={this.state.selectedElection === election}
+                <input type="radio" id={election.id} value={election.name} 
+                checked={this.state.selectedElection === election.id}
                 onChange={this.toggleRadioButton} />
-                {election}
+                {election.name}
             </label>
         </div>;
     };
@@ -41,7 +37,10 @@ export class SelectElection extends React.Component {
             <h3>Select Election</h3>
             {this.props.elections.map(election => this.createRadioButton(election))}
             <button type="button" onClick={() => {this.setState({toVoterSignIn: true})}}>Vote</button>
-            {this.state.toVoterSignIn ? <VoterSignIn registeredVoters={this.state.registeredVoters}/> : null}
+            {this.state.toVoterSignIn ? <VoterSignIn registeredVoters={this.props.registeredVoters}
+                election={this.props.elections.find(election => 
+                    {return election.id === this.state.selectedElection})} 
+                onSubmitBallot={this.props.onSubmitBallot}/> : null}
         </form>;
 
     };
